@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AR Vision Translator</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="translate">Translate</string>
+    <string name="speak">Speak</string>
+    <string name="save">Save</string>
+    <string name="history">History</string>
+    <string name="logout">Logout</string>
+</resources>

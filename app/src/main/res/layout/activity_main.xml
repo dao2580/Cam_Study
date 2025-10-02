@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cam Study"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3"/>
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Logout"
+                android:textSize="12sp"
+                android:backgroundTint="#F44336"/>
+        </LinearLayout>
+
+        <!-- Image Preview -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="16dp"
+            android:elevation="4dp">
+
+            <ImageView
+                android:id="@+id/ivPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:background="#E0E0E0"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Camera & Gallery Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+
+
+            <Button
+                android:id="@+id/btnCamera"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Camera"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#4CAF50"
+                android:drawableLeft="@android:drawable/ic_menu_camera"/>
+
+            <Button
+                android:id="@+id/btnGallery"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Gallery"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="#FF9800"
+                android:drawableLeft="@android:drawable/ic_menu_gallery"/>
+        </LinearLayout>
+
+        <!-- Detection Result -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:elevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detected Object"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#666"/>
+
+                <TextView
+                    android:id="@+id/tvDetected"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No object detected yet"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Manual Input for Translation -->
+        <EditText
+            android:id="@+id/etManual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input something here"
+            android:inputType="textMultiLine"
+            android:minLines="1"
+            android:maxLines="3"
+            android:gravity="top|start"
+            android:padding="12dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="16dp"/>
+
+
+        <!-- Language Selection -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Spinner
+                android:id="@+id/spinnerFrom"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@android:drawable/btn_dropdown"
+                android:padding="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" → "
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="8dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerTo"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@android:drawable/btn_dropdown"
+                android:padding="8dp"/>
+        </LinearLayout>
+
+        <!-- Translate Button -->
+        <Button
+            android:id="@+id/btnTranslate"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Translate"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#2196F3"
+            android:drawableLeft="@android:drawable/ic_menu_sort_by_size"/>
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Translation Result -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:elevation="2dp"
+            android:backgroundTint="#E3F2FD">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Translation"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#1976D2"/>
+
+                <TextView
+                    android:id="@+id/tvTranslated"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Translation will appear here..."
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnSpeak"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Speak"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="#9C27B0"
+                android:drawableLeft="@android:drawable/ic_lock_silent_mode_off"/>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:text="Save"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="#4CAF50"
+                android:drawableLeft="@android:drawable/ic_menu_save"/>
+        </LinearLayout>
+
+        <!-- History Button -->
+        <Button
+            android:id="@+id/btnHistory"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Show History"
+            android:textSize="16sp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#607D8B"
+            android:drawableLeft="@android:drawable/ic_menu_recent_history"/>
+
+        <!-- History List -->
+        <ListView
+            android:id="@+id/lvHistory"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:divider="#CCCCCC"
+            android:dividerHeight="1dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</ScrollView>
